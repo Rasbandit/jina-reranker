@@ -16,6 +16,11 @@ model.eval()
 app = FastAPI()
 
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
 class RerankRequest(BaseModel):
     query: str
     texts: list[str]
